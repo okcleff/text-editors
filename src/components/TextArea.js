@@ -15,9 +15,18 @@ const TextArea = () => {
     return text ? setProofreadOpen(true) : null;
   };
 
+  const closeProofread = () => {
+    return setProofreadOpen(false);
+  };
+
   return (
     <Container>
-      {isProofreadOpen && <Proofread isProofreadOpen={isProofreadOpen} />}
+      {isProofreadOpen && (
+        <Proofread
+          isProofreadOpen={isProofreadOpen}
+          closeProofread={closeProofread}
+        />
+      )}
       <Header>
         <Status>{text ? '입력중' : '본문을 입력하세요.'}</Status>
         <CloseBtn />
@@ -38,6 +47,7 @@ const TextArea = () => {
 export default TextArea;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
