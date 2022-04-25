@@ -32,7 +32,7 @@ const TextArea = () => {
         <CloseBtn />
       </Header>
       <TextInput
-        placeholder='여기에 영어 문장을 직접 작성하거나 붙여넣기 해주세요. 교정 버튼을 누르면 교정 제안이 하단에 나타납니다.'
+        placeholder='여기에 영어 문장을 직접 작성하거나 붙여넣기 해주세요.&#13;&#10;교정 버튼을 누르면 교정 제안이 하단에 나타납니다.'
         onChange={handleTextInput}
         maxLength='1000'
       ></TextInput>
