@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Proofread from './Proofread';
 import { BsFillArrowRightSquareFill, BsX } from 'react-icons/bs';
 
 const TextArea = () => {
   const [text, setText] = useState('');
+  const [isProofreadOpen, setProofreadOpen] = useState(false);
 
   const handleTextInput = (e) => {
     return setText(e.target.value);
   };
 
+  const handleProofread = () => {
+    return text ? setProofreadOpen(true) : null;
+  };
+
   return (
     <Container>
+      {isProofreadOpen && <Proofread isProofreadOpen={isProofreadOpen} />}
       <Header>
         <Status>{text ? '입력중' : '본문을 입력하세요.'}</Status>
         <CloseBtn />
@@ -22,7 +29,7 @@ const TextArea = () => {
       ></TextInput>
       <SubmitWrapper>
         <Length> {text.length} / 1000</Length>
-        <SubmitBtn />
+        <SubmitBtn onClick={handleProofread} />
       </SubmitWrapper>
     </Container>
   );
@@ -35,18 +42,21 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
 `;
 
 const Header = styled.header`
+  width: 100%;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 420px;
-  height: 40px;
 `;
 
-const Status = styled.div``;
+const Status = styled.div`
+  font-weight: bold;
+`;
 
 const CloseBtn = styled(BsX)`
   width: 30px;
@@ -54,10 +64,11 @@ const CloseBtn = styled(BsX)`
 `;
 
 const TextInput = styled.textarea`
-  width: 420px;
+  width: 100%;
   height: 100%;
   padding-top: 20px;
   border: none;
+  font-size: 1rem;
   font-family: sans-serif;
   resize: none;
   overflow: visible;
@@ -70,7 +81,7 @@ const SubmitWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 420px;
+  width: 100vw;
   height: 40px;
   padding: 2px 10px;
   border-top: 1px solid lightgray;
