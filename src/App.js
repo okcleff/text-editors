@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import DraftJS from './components/DraftJS';
+import TextArea from './components/TextArea';
 
 const App = () => {
   return (
     <Container>
-      <DraftJS />
+      {/* <DraftJS /> */}
+      <TextArea />
     </Container>
   );
 };
@@ -13,6 +15,5 @@ const App = () => {
 export default App;
 
 const Container = styled.div`
-  width: 700px;
-  margin: 50px;
+  height: 100vh;
 `;
