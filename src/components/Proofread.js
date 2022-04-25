@@ -29,7 +29,7 @@ const ModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: lightgray;
-  opacity: 0.6;
+  opacity: 0.5;
   z-index: 0;
 `;
 
